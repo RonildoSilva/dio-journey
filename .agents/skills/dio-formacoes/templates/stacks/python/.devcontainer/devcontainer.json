@@ -1,0 +1,10 @@
+{
+  "name": "DIO - Python",
+  "image": "mcr.microsoft.com/devcontainers/python:3.12",
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-python.python", "charliermarsh.ruff", "editorconfig.editorconfig"]
+    }
+  },
+  "postCreateCommand": "python --version"
+}

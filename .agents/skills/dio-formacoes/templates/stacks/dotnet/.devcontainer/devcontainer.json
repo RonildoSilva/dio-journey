@@ -1,0 +1,10 @@
+{
+  "name": "DIO - .NET",
+  "image": "mcr.microsoft.com/devcontainers/dotnet:8.0",
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-dotnettools.csdevkit", "editorconfig.editorconfig"]
+    }
+  },
+  "forwardPorts": [5000, 5001]
+}

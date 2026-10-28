@@ -1,0 +1,481 @@
+{
+  "slug": "flutter-specialist",
+  "stack": "flutter",
+  "url": "",
+  "raw": "flutter.md",
+  "nome": "Formação Flutter Specialist",
+  "nivel": "Intermediário",
+  "horas": 71,
+  "descricao": "Aprenda a desenvolver Aplicativos completos com Flutter, desde a base com Dart até como o fluxo de persistência de dados com Hive e SQLite. Além disso, você irá dominar como consumir APIs direto no seu APP, conhecer os componentes e widgets para construção de uma aplicação rica em interatividade com o usuário. Por fim, explore o funcionamento de gerenciamento de estado com MobX e Provider, além de conhecer boas práticas na hora de codificar seus APPs com os principais padrões de mercado.",
+  "prerequisitos": "Conhecimentos básicos em Lógica de Programação e Pensamento Computacional",
+  "modulos": [
+    {
+      "nome": "Introdução ao Flutter",
+      "atividades": [
+        {
+          "titulo": "Introdução ao Flutter",
+          "tipo": "curso",
+          "nivel": "Básico",
+          "horas": 1,
+          "status": "concluido",
+          "pasta": "01-introducao-ao-flutter"
+        },
+        {
+          "titulo": "Ambiente de Desenvolvimento Flutter",
+          "tipo": "curso",
+          "nivel": "Básico",
+          "horas": 1,
+          "status": "concluido",
+          "pasta": "02-ambiente-de-desenvolvimento-flutter"
+        },
+        {
+          "titulo": "Criando Meu Primeiro Projeto em Flutter",
+          "tipo": "curso",
+          "nivel": "Básico",
+          "horas": 1,
+          "status": "concluido",
+          "pasta": "03-criando-meu-primeiro-projeto-em-flutter"
+        },
+        {
+          "titulo": "Subindo o Seu Projeto Flutter no GitHub",
+          "tipo": "desafio",
+          "nivel": "Básico",
+          "horas": 1,
+          "status": "pendente",
+          "pasta": "04-desafio-subindo-projeto-flutter-github"
+        },
+        {
+          "titulo": "Materiais Complementares - Primeiros Passos com Flutter",
+          "tipo": "complementar",
+          "nivel": "Básico",
+          "horas": 1,
+          "status": "pendente"
+        }
+      ],
+      "pasta": "01-introducao-ao-flutter"
+    },
+    {
+      "nome": "Linguagem de Programação Dart",
+      "atividades": [
+        {
+          "titulo": "Fundamentos da Linguagem Dart",
+          "tipo": "curso",
+          "nivel": "Básico",
+          "horas": 2,
+          "status": "pendente",
+          "pasta": "01-fundamentos-da-linguagem-dart"
+        },
+        {
+          "titulo": "Estruturas Condicionais e de Repetição em Dart",
+          "tipo": "curso",
+          "nivel": "Básico",
+          "horas": 2,
+          "status": "pendente",
+          "pasta": "02-estruturas-condicionais-repeticao-dart"
+        },
+        {
+          "titulo": "Dominando Funções em Dart",
+          "tipo": "curso",
+          "nivel": "Básico",
+          "horas": 1,
+          "status": "pendente",
+          "pasta": "03-dominando-funcoes-em-dart"
+        },
+        {
+          "titulo": "Orientação a Objetos em Dart",
+          "tipo": "curso",
+          "nivel": "Básico",
+          "horas": 2,
+          "status": "pendente",
+          "pasta": "04-orientacao-a-objetos-em-dart"
+        },
+        {
+          "titulo": "Boas Práticas e Tratamento de Exceções em Dart",
+          "tipo": "curso",
+          "nivel": "Básico",
+          "horas": 1,
+          "status": "pendente",
+          "pasta": "05-boas-praticas-tratamento-excecoes-dart"
+        },
+        {
+          "titulo": "Introdução à Testes em Dart",
+          "tipo": "curso",
+          "nivel": "Básico",
+          "horas": 1,
+          "status": "pendente",
+          "pasta": "06-introducao-a-testes-em-dart"
+        },
+        {
+          "titulo": "Criando uma Calculadora de IMC Com Flutter",
+          "tipo": "desafio",
+          "nivel": "Básico",
+          "horas": 1,
+          "status": "pendente",
+          "pasta": "07-desafio-criando-calculadora-imc-flutter"
+        },
+        {
+          "titulo": "Materiais Complementares - Linguagem de Programação Dart",
+          "tipo": "complementar",
+          "nivel": "Básico",
+          "horas": 1,
+          "status": "pendente"
+        }
+      ],
+      "pasta": "02-linguagem-de-programacao-dart"
+    },
+    {
+      "nome": "Navegação e Widgets em Flutter",
+      "atividades": [
+        {
+          "titulo": "Projeto Flutter e Primeiros Componentes",
+          "tipo": "curso",
+          "nivel": "Intermediário",
+          "horas": 3,
+          "status": "pendente",
+          "pasta": "01-projeto-flutter-e-primeiros-componentes"
+        },
+        {
+          "titulo": "Navegação e Controle de Acesso a Páginas em Flutter",
+          "tipo": "curso",
+          "nivel": "Intermediário",
+          "horas": 2,
+          "status": "pendente",
+          "pasta": "02-navegacao-controle-acesso-paginas"
+        },
+        {
+          "titulo": "Widgets para Interação com o Usuário em Flutter",
+          "tipo": "curso",
+          "nivel": "Intermediário",
+          "horas": 2,
+          "status": "pendente",
+          "pasta": "03-widgets-interacao-usuario-flutter"
+        },
+        {
+          "titulo": "Criando Visualizações de Dados em Flutter",
+          "tipo": "curso",
+          "nivel": "Intermediário",
+          "horas": 3,
+          "status": "pendente",
+          "pasta": "04-criando-visualizacoes-dados-flutter"
+        },
+        {
+          "titulo": "Aprimorando a sua Calculadora de IMC com Flutter",
+          "tipo": "desafio",
+          "nivel": "Intermediário",
+          "horas": 1,
+          "status": "pendente",
+          "pasta": "05-desafio-aprimorando-calculadora-imc"
+        },
+        {
+          "titulo": "Materiais Complementares - Pages, Widgets, Navegação e Funções",
+          "tipo": "complementar",
+          "nivel": "Intermediário",
+          "horas": 1,
+          "status": "pendente"
+        }
+      ],
+      "pasta": "03-navegacao-e-widgets-em-flutter"
+    },
+    {
+      "nome": "Persistência de Dados com SQLite",
+      "atividades": [
+        {
+          "titulo": "Persistindo dados locais em APPs Flutter",
+          "tipo": "curso",
+          "nivel": "Intermediário",
+          "horas": 2,
+          "status": "pendente",
+          "pasta": "01-persistindo-dados-locais-em-apps-flutter"
+        },
+        {
+          "titulo": "Armazenando Dados com Banco de Dados Hive",
+          "tipo": "curso",
+          "nivel": "Intermediário",
+          "horas": 2,
+          "status": "pendente",
+          "pasta": "02-armazenando-dados-banco-dados-hive"
+        },
+        {
+          "titulo": "Armazenando Dados Com Banco de Dados SQLite",
+          "tipo": "curso",
+          "nivel": "Intermediário",
+          "horas": 1,
+          "status": "pendente",
+          "pasta": "03-armazenando-dados-banco-dados-sqlite"
+        },
+        {
+          "titulo": "Armazenando os Dados de IMC e Persistindo Localmente",
+          "tipo": "desafio",
+          "nivel": "Intermediário",
+          "horas": 1,
+          "status": "pendente",
+          "pasta": "04-desafio-armazenando-dados-imc"
+        },
+        {
+          "titulo": "Materiais Complementares - Persistência local de dados",
+          "tipo": "complementar",
+          "nivel": "Intermediário",
+          "horas": 1,
+          "status": "pendente"
+        }
+      ],
+      "pasta": "04-persistencia-de-dados-com-sqlite"
+    },
+    {
+      "nome": "Consumindo APIs com Flutter",
+      "atividades": [
+        {
+          "titulo": "Introdução ao Protocolo HTTP",
+          "tipo": "curso",
+          "nivel": "Avançado",
+          "horas": 1,
+          "status": "pendente",
+          "pasta": "01-introducao-ao-protocolo-http"
+        },
+        {
+          "titulo": "Biblioteca HTTP e Conceito de Assincronismo em Flutter",
+          "tipo": "curso",
+          "nivel": "Avançado",
+          "horas": 2,
+          "status": "pendente",
+          "pasta": "02-biblioteca-http-conceito-assincronismo"
+        },
+        {
+          "titulo": "Criando Services para API em Flutter",
+          "tipo": "curso",
+          "nivel": "Avançado",
+          "horas": 2,
+          "status": "pendente",
+          "pasta": "03-criando-services-para-api-em-flutter"
+        },
+        {
+          "titulo": "Trabalhando com APIs Autenticadas em Flutter",
+          "tipo": "curso",
+          "nivel": "Avançado",
+          "horas": 2,
+          "status": "pendente",
+          "pasta": "04-trabalhando-apis-autenticadas-flutter"
+        },
+        {
+          "titulo": "Criando um Crud com APP Flutter",
+          "tipo": "curso",
+          "nivel": "Avançado",
+          "horas": 2,
+          "status": "pendente",
+          "pasta": "05-criando-um-crud-com-app-flutter"
+        },
+        {
+          "titulo": "Criando um App Flutter do Zero Para o Consumo da API do ViaCEP",
+          "tipo": "desafio",
+          "nivel": "Avançado",
+          "horas": 1,
+          "status": "pendente",
+          "pasta": "06-desafio-criando-app-flutter-zero-consumo"
+        },
+        {
+          "titulo": "Materiais Complementares - Assincronismo e APIs REST",
+          "tipo": "complementar",
+          "nivel": "Avançado",
+          "horas": 1,
+          "status": "pendente"
+        }
+      ],
+      "pasta": "05-consumindo-apis-com-flutter"
+    },
+    {
+      "nome": "Trabalhando com Pacotes Externos em Flutter",
+      "atividades": [
+        {
+          "titulo": "Introdução aos Componentes Visuais no Flutter",
+          "tipo": "curso",
+          "nivel": "Avançado",
+          "horas": 2,
+          "status": "pendente",
+          "pasta": "01-introducao-componentes-visuais-flutter"
+        },
+        {
+          "titulo": "Internacionalização e Máscaras com Flutter",
+          "tipo": "curso",
+          "nivel": "Avançado",
+          "horas": 1,
+          "status": "pendente",
+          "pasta": "02-internacionalizacao-mascaras-flutter"
+        },
+        {
+          "titulo": "Interatividade em Aplicações Flutter",
+          "tipo": "curso",
+          "nivel": "Avançado",
+          "horas": 2,
+          "status": "pendente",
+          "pasta": "03-interatividade-em-aplicacoes-flutter"
+        },
+        {
+          "titulo": "Manipulando Câmera e Imagens em Flutter",
+          "tipo": "curso",
+          "nivel": "Avançado",
+          "horas": 1,
+          "status": "pendente",
+          "pasta": "04-manipulando-camera-e-imagens-em-flutter"
+        },
+        {
+          "titulo": "Criando um App Flutter de Lista de Contatos",
+          "tipo": "desafio",
+          "nivel": "Avançado",
+          "horas": 1,
+          "status": "pendente",
+          "pasta": "05-desafio-criando-app-flutter-lista"
+        },
+        {
+          "titulo": "Materiais Complementares - Aplicando Pacotes Externos",
+          "tipo": "complementar",
+          "nivel": "Avançado",
+          "horas": 1,
+          "status": "pendente"
+        }
+      ],
+      "pasta": "06-trabalhando-pacotes-externos-flutter"
+    },
+    {
+      "nome": "Gerenciamento de Estado e Padrões em Flutter",
+      "atividades": [
+        {
+          "titulo": "Gerenciamento de Estado com Provider no Flutter",
+          "tipo": "curso",
+          "nivel": "Avançado",
+          "horas": 1,
+          "status": "pendente",
+          "pasta": "01-gerenciamento-estado-provider-flutter"
+        },
+        {
+          "titulo": "Gerenciamento de Estado com MobX no Flutter",
+          "tipo": "curso",
+          "nivel": "Avançado",
+          "horas": 1,
+          "status": "pendente",
+          "pasta": "02-gerenciamento-estado-mobx-flutter"
+        },
+        {
+          "titulo": "Gerenciamento de Estado com Get no Flutter",
+          "tipo": "curso",
+          "nivel": "Avançado",
+          "horas": 1,
+          "status": "pendente",
+          "pasta": "03-gerenciamento-estado-get-flutter"
+        },
+        {
+          "titulo": "Boas Práticas e Padrões em Flutter",
+          "tipo": "curso",
+          "nivel": "Avançado",
+          "horas": 1,
+          "status": "pendente",
+          "pasta": "04-boas-praticas-e-padroes-em-flutter"
+        },
+        {
+          "titulo": "Criando um App Flutter com Gerenciamento de Estado e Reatividade",
+          "tipo": "desafio",
+          "nivel": "Avançado",
+          "horas": 1,
+          "status": "pendente",
+          "pasta": "05-desafio-criando-app-flutter"
+        },
+        {
+          "titulo": "Materiais Complementares - Gerenciamento de Estado e Padrões em Flutter",
+          "tipo": "complementar",
+          "nivel": "Avançado",
+          "horas": 1,
+          "status": "pendente"
+        }
+      ],
+      "pasta": "07-gerenciamento-estado-padroes-flutter"
+    },
+    {
+      "nome": "Introdução ao Firebase",
+      "atividades": [
+        {
+          "titulo": "Conhecendo o Firebase",
+          "tipo": "curso",
+          "nivel": "Avançado",
+          "horas": 1,
+          "status": "pendente",
+          "pasta": "01-conhecendo-o-firebase"
+        },
+        {
+          "titulo": "Conhecendo o Cloud Firestore",
+          "tipo": "curso",
+          "nivel": "Avançado",
+          "horas": 2,
+          "status": "pendente",
+          "pasta": "02-conhecendo-o-cloud-firestore"
+        },
+        {
+          "titulo": "Recursos de Ambiente de Produção para Aplicativos Flutter",
+          "tipo": "curso",
+          "nivel": "Avançado",
+          "horas": 2,
+          "status": "pendente",
+          "pasta": "03-recursos-ambiente-producao-aplicativos"
+        },
+        {
+          "titulo": "Potencializando o seu App Flutter com Cloud Firestore",
+          "tipo": "desafio",
+          "nivel": "Avançado",
+          "horas": 1,
+          "status": "pendente",
+          "pasta": "04-desafio-potencializando-app-flutter"
+        },
+        {
+          "titulo": "Materiais Complementares – Firebase",
+          "tipo": "complementar",
+          "nivel": "Avançado",
+          "horas": 1,
+          "status": "pendente"
+        }
+      ],
+      "pasta": "08-introducao-ao-firebase"
+    },
+    {
+      "nome": "Publicando os Seus Apps Flutter",
+      "atividades": [
+        {
+          "titulo": "Publicando Apps Flutter na PlayStore",
+          "tipo": "curso",
+          "nivel": "Avançado",
+          "horas": 1,
+          "status": "pendente",
+          "pasta": "01-publicando-apps-flutter-na-playstore"
+        },
+        {
+          "titulo": "Publicação de APPs Flutter para IOS",
+          "tipo": "curso",
+          "nivel": "Avançado",
+          "horas": 1,
+          "status": "pendente",
+          "pasta": "02-publicacao-de-apps-flutter-para-ios"
+        },
+        {
+          "titulo": "Criando a Versão de Release do seu App com Flutter",
+          "tipo": "desafio",
+          "nivel": "Avançado",
+          "horas": 1,
+          "status": "pendente",
+          "pasta": "03-desafio-criando-versao-release-app"
+        },
+        {
+          "titulo": "Materiais Complementares – Publicando seus Apps",
+          "tipo": "complementar",
+          "nivel": "Avançado",
+          "horas": 1,
+          "status": "pendente"
+        },
+        {
+          "titulo": "Avalie a Formação Flutter Specialist",
+          "tipo": "avaliacao",
+          "nivel": "Básico",
+          "horas": 1,
+          "status": "pendente"
+        }
+      ],
+      "pasta": "09-publicando-os-seus-apps-flutter"
+    }
+  ]
+}

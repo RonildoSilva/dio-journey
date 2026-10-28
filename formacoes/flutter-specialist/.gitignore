@@ -1,0 +1,32 @@
+# Flutter / Dart
+.dart_tool/
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+*.iml
+.idea/
+
+# FVM (SDK baixado localmente)
+.fvm/flutter_sdk
+.fvm/versions/
+
+# Android
+**/android/.gradle/
+**/android/local.properties
+**/android/app/debug/
+**/android/app/release/
+*.keystore
+*.jks
+key.properties
+
+# iOS / macOS
+**/ios/Pods/
+**/ios/.symlinks/
+**/ios/Flutter/Generated.xcconfig
+**/ios/Flutter/flutter_export_environment.sh
+
+# Firebase (segredos)
+google-services.json
+GoogleService-Info.plist
+firebase_options.dart

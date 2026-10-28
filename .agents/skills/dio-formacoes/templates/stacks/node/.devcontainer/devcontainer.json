@@ -1,0 +1,11 @@
+{
+  "name": "DIO - Node.js",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
+  "customizations": {
+    "vscode": {
+      "extensions": ["dbaeumer.vscode-eslint", "esbenp.prettier-vscode", "editorconfig.editorconfig"]
+    }
+  },
+  "forwardPorts": [3000, 5173],
+  "postCreateCommand": "node --version && npm --version"
+}

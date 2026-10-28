@@ -1,0 +1,20 @@
+# Sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+.idea/
+*.swp
+*~
+
+# Segredos e ambientes locais
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+node_modules/
+
+# Rascunhos copiados da DIO (a informação útil vai para formacao.json)
+_raw/
