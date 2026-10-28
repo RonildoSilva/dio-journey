@@ -21,7 +21,18 @@ Chegou a sua hora de colocar a mão na massa e assumir o protagonismo. Neste pri
 
 ## Solução
 
-_O que foi feito, decisões e aprendizados._
+Instalei o Flutter com o FVM, fixando a versão 3.47.8 (Dart 3.13.7) no `.fvmrc` da formação, para
+que todos os projetos dela usem o mesmo SDK, sem depender de uma instalação global. Com o ambiente
+pronto, criei o projeto `projeto_flutter_github` (org `br.com.ronildosilva`) com `fvm flutter create`.
+É o app contador padrão do Flutter, com suporte a Android, iOS, web, Linux, macOS e Windows, e o
+projeto passa no `fvm flutter analyze` e no teste de widget incluído (`fvm flutter test`).
+
+Antes de subir para o GitHub, revisei o `.gitignore`: o modelo do Flutter ignorava o wrapper do
+Gradle (`gradlew`, `gradlew.bat` e `gradle-wrapper.jar`), o que impediria o build Android em outra
+máquina, então esses arquivos passaram a ser versionados. Já `pubspec.lock` fica no repositório,
+enquanto `build/`, `.dart_tool/`, `local.properties` e chaves de assinatura continuam de fora. O
+projeto foi publicado no monorepo [dio-journey](https://github.com/RonildoSilva/dio-journey), em que
+cada desafio da formação fica na sua própria pasta.
 
 ## Como executar
 
