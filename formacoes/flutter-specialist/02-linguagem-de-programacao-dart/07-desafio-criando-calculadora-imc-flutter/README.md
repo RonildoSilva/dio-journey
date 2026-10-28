@@ -21,10 +21,28 @@ _Ainda não registrado: cole a página do desafio em `_raw/<formacao>/entregas.m
 
 ## Solução
 
-_O que foi feito, decisões e aprendizados._
+Aplicativo Flutter com uma tela que recebe peso (kg) e altura (m), calcula o IMC (peso dividido por altura ao quadrado) e mostra o valor com uma casa decimal e a classificação da OMS para adultos. Os campos aceitam vírgula ou ponto como separador decimal; entrada vazia, não numérica ou não positiva mostra uma mensagem de erro em vez de calcular.
+
+A regra de cálculo e a classificação ficam em `lib/imc.dart`, separadas da interface (`lib/main.dart`), e são cobertas por `test/imc_test.dart`. `test/widget_test.dart` testa o fluxo da tela. Versão do Flutter fixada em `3.47.8` (`.fvmrc` da formação); `fvm flutter analyze` sem problemas e `fvm flutter test` com 7 testes passando.
 
 ## Como executar
 
+Na pasta desta entrega, com o FVM instalado (passos na [formação](../../README.md#ambiente)):
+
+**Linux**
+
 ```bash
-# comandos
+fvm install
+fvm flutter pub get
+fvm flutter run
+fvm flutter test
+```
+
+**Windows (PowerShell)**
+
+```powershell
+fvm install
+fvm flutter pub get
+fvm flutter run
+fvm flutter test
 ```
