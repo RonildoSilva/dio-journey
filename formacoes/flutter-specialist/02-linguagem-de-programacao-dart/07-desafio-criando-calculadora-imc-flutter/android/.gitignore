@@ -1,0 +1,12 @@
+# gradle-wrapper.jar, gradlew e gradlew.bat ficam no repo: sem eles o build Android não roda em outra máquina
+/.gradle
+/captures/
+/local.properties
+GeneratedPluginRegistrant.java
+.cxx/
+
+# Remember to never publicly share your keystore.
+# See https://flutter.dev/to/reference-keystore
+key.properties
+**/*.keystore
+**/*.jks
