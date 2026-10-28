@@ -1,0 +1,194 @@
+{
+  "slug": "python-fundamentals",
+  "stack": "python",
+  "url": "https://web.dio.me/track/formacao-python-fundamentals",
+  "raw": "pagina.html",
+  "nome": "Formação Python Fundamentals",
+  "nivel": "Básico",
+  "horas": 26,
+  "descricao": "Você começará com os Fundamentos de Python e o ambiente de desenvolvimento, passando por operadores, estruturas condicionais e de repetição, até a manipulação de strings. A formação cobre também estruturas de dados, como listas, tuplas, conjuntos e dicionários, além de funções em Python.",
+  "prerequisitos": "",
+  "modulos": [
+    {
+      "nome": "Fundamentos do Python",
+      "atividades": [
+        {
+          "titulo": "Ambiente de Desenvolvimento e Primeiros Passos com Python",
+          "tipo": "curso",
+          "nivel": "Básico",
+          "horas": 1,
+          "status": "concluido"
+        },
+        {
+          "titulo": "Conhecendo a Linguagem de Programação Python",
+          "tipo": "curso",
+          "nivel": "Básico",
+          "horas": 2,
+          "status": "concluido"
+        },
+        {
+          "titulo": "Tipos de Operadores com Python",
+          "tipo": "curso",
+          "nivel": "Básico",
+          "horas": 2,
+          "status": "concluido"
+        },
+        {
+          "titulo": "Estruturas Condicionais e de Repetição em Python",
+          "tipo": "curso",
+          "nivel": "Básico",
+          "horas": 2,
+          "status": "concluido"
+        },
+        {
+          "titulo": "Manipulando Strings com Python",
+          "tipo": "curso",
+          "nivel": "Básico",
+          "horas": 2,
+          "status": "concluido"
+        },
+        {
+          "titulo": "Explorando Fundamentos de Python",
+          "tipo": "desafio-codigo",
+          "nivel": "Básico",
+          "horas": 1,
+          "status": "pendente",
+          "pasta": "06-desafio-explorando-fundamentos-de-python"
+        }
+      ],
+      "pasta": "01-fundamentos-do-python"
+    },
+    {
+      "nome": "Aprendendo Estruturas de Dados com Python",
+      "atividades": [
+        {
+          "titulo": "Trabalhando com Listas em Python",
+          "tipo": "curso",
+          "nivel": "Intermediário",
+          "horas": 1,
+          "status": "concluido"
+        },
+        {
+          "titulo": "Conhecendo Tuplas em Python",
+          "tipo": "curso",
+          "nivel": "Intermediário",
+          "horas": 1,
+          "status": "concluido"
+        },
+        {
+          "titulo": "Explorando Conjuntos em Python",
+          "tipo": "curso",
+          "nivel": "Intermediário",
+          "horas": 1,
+          "status": "pendente"
+        },
+        {
+          "titulo": "Aprendendo a Utilizar Dicionários em Python",
+          "tipo": "curso",
+          "nivel": "Intermediário",
+          "horas": 1,
+          "status": "concluido"
+        },
+        {
+          "titulo": "Dominando Funções Python",
+          "tipo": "curso",
+          "nivel": "Intermediário",
+          "horas": 1,
+          "status": "concluido"
+        },
+        {
+          "titulo": "Dominando Estrutura de Dados com Python",
+          "tipo": "desafio-codigo",
+          "nivel": "Básico",
+          "horas": 1,
+          "status": "pendente",
+          "pasta": "06-desafio-dominando-estrutura-dados-python"
+        }
+      ],
+      "pasta": "02-aprendendo-estruturas-dados-python"
+    },
+    {
+      "nome": "Programação Orientada a Objetos com Python",
+      "atividades": [
+        {
+          "titulo": "Introdução à Programação Orientada a Objetos (POO) com Python",
+          "tipo": "curso",
+          "nivel": "Avançado",
+          "horas": 1,
+          "status": "pendente"
+        },
+        {
+          "titulo": "Aprendendo o Conceito de Herança com Python",
+          "tipo": "curso",
+          "nivel": "Avançado",
+          "horas": 1,
+          "status": "pendente"
+        },
+        {
+          "titulo": "Aplicando Encapsulamento em Python",
+          "tipo": "curso",
+          "nivel": "Avançado",
+          "horas": 1,
+          "status": "pendente"
+        },
+        {
+          "titulo": "Conhecendo Polimorfismo em Python",
+          "tipo": "curso",
+          "nivel": "Avançado",
+          "horas": 1,
+          "status": "pendente"
+        },
+        {
+          "titulo": "Interfaces e Classes Abstratas com Python",
+          "tipo": "curso",
+          "nivel": "Avançado",
+          "horas": 1,
+          "status": "pendente"
+        },
+        {
+          "titulo": "Treinando Orientação a Objetos com Python",
+          "tipo": "desafio-codigo",
+          "nivel": "Básico",
+          "horas": 1,
+          "status": "pendente",
+          "pasta": "06-desafio-treinando-orientacao-objetos"
+        }
+      ],
+      "pasta": "03-programacao-orientada-objetos-python"
+    },
+    {
+      "nome": "Decoradores, Iteradores e Manipulação de Data e Arquivos em Python",
+      "atividades": [
+        {
+          "titulo": "Decoradores, Iteradores e Geradores com Python",
+          "tipo": "curso",
+          "nivel": "Básico",
+          "horas": 1,
+          "status": "pendente"
+        },
+        {
+          "titulo": "Lidando com Data, Hora e Fuso Horário no Python",
+          "tipo": "curso",
+          "nivel": "Básico",
+          "horas": 1,
+          "status": "pendente"
+        },
+        {
+          "titulo": "Manipulando Arquivos em Python",
+          "tipo": "curso",
+          "nivel": "Básico",
+          "horas": 1,
+          "status": "pendente"
+        },
+        {
+          "titulo": "Avalie a Formação Python Fundamentals",
+          "tipo": "avaliacao",
+          "nivel": "Básico",
+          "horas": 1,
+          "status": "pendente"
+        }
+      ],
+      "pasta": "04-decoradores-iteradores-manipulacao-data"
+    }
+  ]
+}
