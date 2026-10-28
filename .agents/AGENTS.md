@@ -9,5 +9,8 @@
 - **Linux e Windows.** Todo comando documentado deve ter equivalente para as duas plataformas.
   Scripts de automação só em Python (biblioteca padrão), sem bash/PowerShell exclusivos.
 - **Ambientes isolados por formação.** Nunca instalar dependências globais para uma formação.
-- Para organizar formações da DIO, usar a skill `dio-formacoes`.
+- **Só desafios têm pasta.** Cursos, materiais complementares e avaliações aparecem só na tabela do
+  README da formação. Pasta = código entregue (desafio); anotações de curso vão em "Minhas anotações".
+- Para organizar formações da DIO, usar a skill `dio-formacoes` (fonte: `.agents/skills/dio-formacoes/`;
+  Claude Code lê o stub em `.claude/skills/dio-formacoes/`).
 - Idioma: português do Brasil.

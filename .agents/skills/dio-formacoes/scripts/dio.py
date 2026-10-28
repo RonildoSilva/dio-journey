@@ -9,18 +9,29 @@ Subcomandos:
          Lê o texto copiado da página da formação na DIO e grava/atualiza
          formacoes/<SLUG>/formacao.json (preserva pastas e status já existentes).
 
-  build  Gera/atualiza a estrutura: pastas de módulos e atividades, READMEs,
+  build  Gera/atualiza a estrutura: pastas de módulos e de desafios, READMEs,
          arquivos de ambiente da stack e o índice no README raiz.
-         Nunca sobrescreve anotações: só reescreve o bloco AUTO dos READMEs.
+         Cursos não têm pasta (só desafios têm código). Nunca sobrescreve
+         anotações: só reescreve o bloco AUTO dos READMEs.
 
   marcar FORMACAO TERMO [--pendente]
          Marca uma atividade como concluída (ou pendente). TERMO pode ser
          parte do título ou da pasta.
 
+  entregas FORMACAO RAW
+         Lê o texto copiado das páginas de desafio (DESCRIÇÃO + título) e grava
+         o enunciado em cada desafio. Gera ENTREGAS.md na formação.
+
+  entregar FORMACAO TERMO [--link URL] [--data AAAA-MM-DD] [--pendente]
+         Registra a entrega de um desafio (link padrão: pasta no GitHub) e
+         marca a atividade como concluída.
+
 Exemplos:
-  python3 .agents/skills/dio-formacoes/scripts/dio.py parse _raw/flutter.md --slug flutter-specialist --stack flutter
+  python3 .agents/skills/dio-formacoes/scripts/dio.py parse _raw/flutter-specialist/pagina.md --slug flutter-specialist --stack flutter
   python  .agents/skills/dio-formacoes/scripts/dio.py build
   py      .agents/skills/dio-formacoes/scripts/dio.py marcar flutter-specialist "calculadora de imc"
+  py      .agents/skills/dio-formacoes/scripts/dio.py entregas flutter-specialist _raw/flutter-specialist/entregas.md
+  py      .agents/skills/dio-formacoes/scripts/dio.py entregar flutter-specialist "subindo"
 """
 import argparse
 import json
@@ -49,7 +60,7 @@ TIPOS = {
     "artigo": "artigo",
     "mentoria": "mentoria",
 }
-TIPOS_COM_PASTA = ("curso", "desafio", "desafio-codigo")
+TIPOS_DESAFIO = ("desafio", "desafio-codigo")  # só desafios têm pasta (são o código entregue)
 ROTULO_TIPO = {
     "curso": "Curso",
     "desafio": "Desafio de projeto",
@@ -218,9 +229,10 @@ def atribuir_pastas(data):
     for mi, mod in enumerate(data["modulos"], start=1):
         mod.setdefault("pasta", f"{mi:02d}-{slugify(mod['nome'])}")
         for ai, at in enumerate(mod["atividades"], start=1):
-            if at["tipo"] in TIPOS_COM_PASTA:
-                prefixo = "desafio-" if at["tipo"].startswith("desafio") else ""
-                at.setdefault("pasta", f"{ai:02d}-{prefixo}{slugify(at['titulo'], SLUG_MAX - len(prefixo))}")
+            if is_desafio(at):
+                at.setdefault("pasta", f"{ai:02d}-desafio-{slugify(at['titulo'], SLUG_MAX - len('desafio-'))}")
+            else:
+                at.pop("pasta", None)  # pasta de curso antiga (cursos não têm pasta)
 
 
 def merge(old, new):
@@ -296,24 +308,78 @@ def copiar_stack(fdir, stack):
                 shutil.copyfile(f, dest)
 
 
-def readme_atividade(data, mod, at):
+REPO_URL_PADRAO = "https://github.com/RonildoSilva/dio-journey"
+ROTULO_ENTREGA = {"pendente": "⏳ Pendente", "entregue": "📦 Entregue"}
+
+
+def config(root):
+    f = Path(root) / "dio.config.json"
+    return read_json(f) if f.exists() else {}
+
+
+def url_pasta(root, rel):
+    cfg = config(root)
+    return f"{cfg.get('repo_url', REPO_URL_PADRAO).rstrip('/')}/tree/{cfg.get('branch', 'main')}/{rel}"
+
+
+def is_desafio(at):
+    return at["tipo"] in TIPOS_DESAFIO
+
+
+def entrega(at):
+    return at.get("entrega") or {"status": "pendente", "link": "", "data": ""}
+
+
+def md_link(url):
+    return f"[{url}]({url})" if url.startswith("http") else (url or "-")
+
+
+TAIL_DESAFIO = ("\n## Solução\n\n_O que foi feito, decisões e aprendizados._\n\n"
+                "## Como executar\n\n```bash\n# comandos\n```\n")
+
+
+def auto_desafio(root, data, mod, at, adir):
+    e = entrega(at)
     horas = f"{at['horas']}h" if at.get("horas") else "-"
-    txt = (
-        f"# {at['titulo']}\n\n"
-        f"| Formação | Módulo | Tipo | Nível | Carga |\n|---|---|---|---|---|\n"
+    rel = adir.relative_to(root).as_posix()
+    out = [
+        f"# {at['titulo']}", "",
+        "| Formação | Módulo | Tipo | Nível | Carga | Status |", "|---|---|---|---|---|:-:|",
         f"| [{data['nome']}](../../README.md) | {mod['nome']} | {ROTULO_TIPO.get(at['tipo'], at['tipo'])} "
-        f"| {at.get('nivel') or '-'} | {horas} |\n\n"
-    )
-    if at["tipo"].startswith("desafio"):
-        txt += (
-            "## Descrição do desafio\n\n_Cole aqui o enunciado da DIO._\n\n"
-            "## Solução\n\n_O que foi feito, decisões e aprendizados._\n\n"
-            "## Como executar\n\n```bash\n# comandos\n```\n\n"
-            "## Entrega\n\n- Link enviado à DIO: \n"
-        )
-    else:
-        txt += "## Anotações\n\n- \n\n## Código\n\nExercícios e exemplos do curso ficam nesta pasta.\n"
-    return txt
+        f"| {at.get('nivel') or '-'} | {horas} | {'✅' if at['status'] == 'concluido' else '⬜'} |", "",
+        "## 📋 Enunciado", "",
+        at.get("enunciado") or "_Ainda não registrado: cole a página do desafio em "
+        "`_raw/<formacao>/entregas.md` e rode `dio.py entregas`._", "",
+        "## 📦 Entrega", "",
+        "| Status | Data | Link enviado à DIO |", "|:-:|:-:|---|",
+        f"| {ROTULO_ENTREGA[e['status']]} | {e.get('data') or '-'} | {md_link(e.get('link', ''))} |", "",
+        f"- Link desta pasta no GitHub (para enviar à DIO): `{url_pasta(root, rel)}`",
+        "- Todas as entregas da formação: [ENTREGAS.md](../../ENTREGAS.md)",
+    ]
+    return "\n".join(out)
+
+
+def build_entregas(data, fdir):
+    desafios = [(m, a) for m in data["modulos"] for a in m["atividades"] if is_desafio(a)]
+    ent = sum(entrega(a)["status"] == "entregue" for _, a in desafios)
+    out = [
+        f"# 📦 Entregas: {data['nome']}", "",
+        "Desafios de projeto da formação, enunciados e o que foi enviado à DIO. "
+        "Voltar ao [README da formação](README.md).", "",
+        barra(ent, len(desafios)), "",
+        "| # | Desafio | Módulo | Entrega | Data | Link enviado |", "|:-:|---|---|:-:|:-:|---|",
+    ]
+    for n, (m, a) in enumerate(desafios, 1):
+        e = entrega(a)
+        out.append(f"| {n} | [{a['titulo']}]({m['pasta']}/{a['pasta']}/) | {m['nome']} "
+                   f"| {ROTULO_ENTREGA[e['status']]} | {e.get('data') or '-'} | {md_link(e.get('link', ''))} |")
+    out += ["", "## Enunciados", ""]
+    for n, (m, a) in enumerate(desafios, 1):
+        out += [f"### {n}. {a['titulo']}", "",
+                f"📁 [{m['pasta']}/{a['pasta']}]({m['pasta']}/{a['pasta']}/) · {m['nome']}", "",
+                a.get("enunciado") or "_Enunciado ainda não registrado._", ""]
+    replace_auto(fdir / "ENTREGAS.md", "\n".join(out))
+    return ent, len(desafios)
 
 
 def build_formacao(root, fjson):
@@ -324,6 +390,7 @@ def build_formacao(root, fjson):
     copiar_stack(fdir, data.get("stack") or "generic")
 
     feitos, total = contar(data)
+    ent, tot_des = build_entregas(data, fdir)
     meta = " · ".join(x for x in [
         data.get("nivel"),
         f"{data['horas']}h" if data.get("horas") else "",
@@ -336,7 +403,10 @@ def build_formacao(root, fjson):
         out += [data["descricao"], ""]
     if data.get("prerequisitos"):
         out += [f"**Pré-requisitos:** {data['prerequisitos']}", ""]
-    out += ["## Progresso", "", barra(feitos, total), "",
+    out += ["## Progresso", "",
+            "| | |", "|---|---|",
+            f"| Atividades | {barra(feitos, total)} |",
+            f"| Desafios entregues | {barra(ent, tot_des)} · [ver entregas](ENTREGAS.md) |", "",
             "## Ambiente", "", "Instruções para Linux e Windows em [AMBIENTE.md](AMBIENTE.md).", "",
             "## Conteúdo", ""]
 
@@ -347,56 +417,146 @@ def build_formacao(root, fjson):
         for at in mod["atividades"]:
             icone = "✅" if at["status"] == "concluido" else "⬜"
             titulo = at["titulo"]
-            if at.get("pasta"):
-                titulo = f"[{titulo}]({mod['pasta']}/{at['pasta']}/)"
+            if is_desafio(at):
                 adir = fdir / mod["pasta"] / at["pasta"]
                 adir.mkdir(parents=True, exist_ok=True)
-                readme = adir / "README.md"
-                if not readme.exists():
-                    write_text(readme, readme_atividade(data, mod, at))
-            if at["tipo"] == "desafio":
-                titulo = f"🚀 {titulo}"
+                replace_auto(adir / "README.md", auto_desafio(root, data, mod, at, adir), TAIL_DESAFIO)
+                titulo = f"🚀 [{titulo}]({mod['pasta']}/{at['pasta']}/)"
+                if entrega(at)["status"] == "entregue":
+                    titulo += " · [📦](ENTREGAS.md)"
             horas = f"{at['horas']}h" if at.get("horas") else "-"
             out.append(f"| {icone} | {titulo} | {ROTULO_TIPO.get(at['tipo'], at['tipo'])} "
                        f"| {at.get('nivel') or '-'} | {horas} |")
         out.append("")
 
     replace_auto(fdir / "README.md", "\n".join(out), "\n## Minhas anotações\n\n- \n")
-    return data, feitos, total
+    return data, feitos, total, ent, tot_des
 
 
 def cmd_build(args):
     root = Path(args.root)
-    linhas = ["| Formação | Stack | Progresso |", "|---|---|---|"]
+    linhas = ["| Formação | Stack | Progresso | Entregas |", "|---|---|---|---|"]
     fjsons = sorted((root / "formacoes").glob("*/formacao.json"))
     for fjson in fjsons:
-        data, feitos, total = build_formacao(root, fjson)
+        data, feitos, total, ent, tot_des = build_formacao(root, fjson)
         rel = fjson.parent.relative_to(root).as_posix()
-        linhas.append(f"| [{data['nome']}]({rel}/) | `{data.get('stack')}` | {barra(feitos, total, 10)} |")
-        print(f"OK {rel} ({feitos}/{total})")
+        linhas.append(f"| [{data['nome']}]({rel}/) | `{data.get('stack')}` | {barra(feitos, total, 10)} "
+                      f"| [{ent}/{tot_des}]({rel}/ENTREGAS.md) |")
+        print(f"OK {rel} (atividades {feitos}/{total}, entregas {ent}/{tot_des})")
     if not fjsons:
-        linhas.append("| _nenhuma formação ainda_ | | |")
+        linhas.append("| _nenhuma formação ainda_ | | | |")
     replace_auto(root / "README.md", "\n".join(linhas))
     print("OK README.md (índice)")
 
 
-def cmd_marcar(args):
-    root = Path(args.root)
-    fjson = root / "formacoes" / args.formacao / "formacao.json"
+def carregar(root, slug):
+    fjson = Path(root) / "formacoes" / slug / "formacao.json"
     if not fjson.exists():
         sys.exit(f"Formação não encontrada: {fjson}")
-    data = read_json(fjson)
-    termo = args.termo.lower().strip("/\\")
-    achados = [a for m in data["modulos"] for a in m["atividades"]
-               if termo in a["titulo"].lower() or termo in (a.get("pasta") or "")]
+    return fjson, read_json(fjson)
+
+
+def achar(data, termo):
+    termo = termo.lower().strip("/\\")
+    termo = termo.rsplit("/", 1)[-1] if "/" in termo else termo
+    return [(m, a) for m in data["modulos"] for a in m["atividades"]
+            if termo in a["titulo"].lower() or termo in (a.get("pasta") or "")]
+
+
+def achar_um(data, termo):
+    achados = achar(data, termo)
     if len(achados) != 1:
-        print(f"{len(achados)} atividades encontradas para '{args.termo}':")
-        for a in achados:
+        print(f"{len(achados)} atividades encontradas para '{termo}':")
+        for _, a in achados:
             print(f"  - {a['titulo']} [{a.get('pasta', '-')}]")
         sys.exit(1)
-    achados[0]["status"] = "pendente" if args.pendente else "concluido"
+    return achados[0]
+
+
+def cmd_marcar(args):
+    fjson, data = carregar(args.root, args.formacao)
+    _, at = achar_um(data, args.termo)
+    at["status"] = "pendente" if args.pendente else "concluido"
     write_json(fjson, data)
-    print(f"OK '{achados[0]['titulo']}' -> {achados[0]['status']}")
+    print(f"OK '{at['titulo']}' -> {at['status']}")
+    cmd_build(args)
+
+
+# --------------------------------------------------------------------------- entregas
+def norm(t):
+    t = unicodedata.normalize("NFKD", t).encode("ascii", "ignore").decode().lower()
+    return re.sub(r"\s+", " ", t).strip()
+
+
+def parse_entregas(text):
+    """Extrai pares (título, enunciado) do texto copiado das páginas de desafio da DIO.
+
+    Aceita a DESCRIÇÃO antes ou depois do bloco "Imagem do bootcamp <título>".
+    """
+    text = text.replace("\u200b", "").replace("\ufeff", "")
+    lines = [l.rstrip() for l in text.splitlines()]
+    is_desc = lambda l: norm(l) in ("descricao", "descricao do desafio")
+    is_tit = lambda l: l.strip().startswith("Imagem do bootcamp")
+    itens, pend, ultimo, i = [], None, None, 0
+    while i < len(lines):
+        l = lines[i].strip()
+        if is_desc(l):
+            buf, i = [], i + 1
+            while i < len(lines) and not is_desc(lines[i]) and not is_tit(lines[i]):
+                buf.append(lines[i].strip())
+                i += 1
+            desc = re.sub(r"\n{3,}", "\n\n", "\n".join(buf)).strip()
+            proximo_e_titulo = i < len(lines) and is_tit(lines[i])
+            if ultimo is not None and not ultimo["enunciado"] and not proximo_e_titulo:
+                ultimo["enunciado"] = desc
+            else:
+                pend = desc
+            continue
+        if is_tit(l):
+            ultimo = {"titulo": l.replace("Imagem do bootcamp", "", 1).strip(), "enunciado": pend or ""}
+            pend = None
+            itens.append(ultimo)
+        i += 1
+    return itens
+
+
+def cmd_entregas(args):
+    fjson, data = carregar(args.root, args.formacao)
+    itens = parse_entregas(Path(args.raw).read_text(encoding="utf-8"))
+    if not itens:
+        sys.exit("Nenhum desafio encontrado (procuro por 'Imagem do bootcamp <título>' e 'DESCRIÇÃO').")
+    todos = [(m, a) for m in data["modulos"] for a in m["atividades"]]
+    for it in itens:
+        alvo = [a for _, a in todos if norm(a["titulo"]) == norm(it["titulo"])] or \
+               [a for _, a in todos if norm(it["titulo"]) in norm(a["titulo"])]
+        if len(alvo) != 1:
+            print(f"   aviso: não encontrei '{it['titulo']}' na formação ({len(alvo)} resultados)")
+            continue
+        at = alvo[0]
+        if it["enunciado"]:
+            at["enunciado"] = it["enunciado"]
+        at.setdefault("entrega", entrega(at))
+        print(f"OK enunciado: {at['titulo']}")
+    write_json(fjson, data)
+    cmd_build(args)
+
+
+def cmd_entregar(args):
+    from datetime import date
+    root = Path(args.root)
+    fjson, data = carregar(root, args.formacao)
+    mod, at = achar_um(data, args.termo)
+    if not is_desafio(at):
+        sys.exit(f"'{at['titulo']}' não é um desafio.")
+    if args.pendente:
+        at["entrega"] = {"status": "pendente", "link": "", "data": ""}
+    else:
+        rel = (fjson.parent / mod["pasta"] / at["pasta"]).relative_to(root).as_posix()
+        at["entrega"] = {"status": "entregue", "link": args.link or url_pasta(root, rel),
+                         "data": args.data or date.today().isoformat()}
+        at["status"] = "concluido"
+    write_json(fjson, data)
+    print(f"OK entrega '{at['titulo']}' -> {at['entrega']['status']} {at['entrega']['link']}")
     cmd_build(args)
 
 
@@ -421,6 +581,19 @@ def main():
     sm.add_argument("termo")
     sm.add_argument("--pendente", action="store_true")
     sm.set_defaults(func=cmd_marcar)
+
+    se = sub.add_parser("entregas", help="registra enunciados dos desafios a partir do texto da DIO")
+    se.add_argument("formacao")
+    se.add_argument("raw")
+    se.set_defaults(func=cmd_entregas)
+
+    sg = sub.add_parser("entregar", help="registra a entrega de um desafio")
+    sg.add_argument("formacao")
+    sg.add_argument("termo")
+    sg.add_argument("--link", help="link enviado à DIO (padrão: URL da pasta no GitHub)")
+    sg.add_argument("--data", help="AAAA-MM-DD (padrão: hoje)")
+    sg.add_argument("--pendente", action="store_true", help="desfaz a entrega")
+    sg.set_defaults(func=cmd_entregar)
 
     args = p.parse_args()
     if hasattr(sys.stdout, "reconfigure"):

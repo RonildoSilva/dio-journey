@@ -6,9 +6,9 @@ tudo organizado em um só lugar.
 ## 📊 Formações
 
 <!-- AUTO:START (gerado por dio.py - não edite dentro deste bloco) -->
-| Formação | Stack | Progresso |
-|---|---|---|
-| [Formação Flutter Specialist](formacoes/flutter-specialist/) | `flutter` | `█░░░░░░░░░` 3/53 (6%) |
+| Formação | Stack | Progresso | Entregas |
+|---|---|---|---|
+| [Formação Flutter Specialist](formacoes/flutter-specialist/) | `flutter` | `█░░░░░░░░░` 3/53 (6%) | [0/9](formacoes/flutter-specialist/ENTREGAS.md) |
 <!-- AUTO:END -->
 
 > 🚀 = desafio de projeto · ✅ = concluído · ⬜ = pendente
@@ -24,12 +24,15 @@ dio-journey/
 │       ├── .devcontainer/           ← ambiente em container (opcional)
 │       ├── formacao.json            ← dados da formação (fonte da verdade)
 │       └── NN-<modulo>/
-│           ├── NN-<curso>/          ← anotações e exercícios
-│           └── NN-desafio-<nome>/   ← projeto do desafio
+│           └── NN-desafio-<nome>/   ← projeto do desafio (só desafios têm pasta)
 ├── docs/
 │   └── GIT-GUIA.md                  ← clonar só uma pasta, subtree, tags
-└── .agents/skills/dio-formacoes/    ← automação (script + templates por stack)
+├── .agents/skills/dio-formacoes/    ← skill (Google/Gemini, Antigravity, Codex) + script
+└── .claude/skills/dio-formacoes/    ← stub da mesma skill para o Claude Code
 ```
+
+Cursos são vídeo-aulas da DIO: ficam listados na tabela do README da formação, sem pasta.
+Só os desafios têm código, então só eles viram pasta (e são o que sobe para o GitHub e para a DIO).
 
 ## 🧪 Ambientes isolados
 

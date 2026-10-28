@@ -6,9 +6,16 @@ description: Organiza formações, bootcamps, cursos e desafios de projeto da pl
 # DIO Formações
 
 Mantém o monorepo `dio-journey` organizado: `formacoes/<slug>/` com um ambiente isolado por
-formação, pastas por módulo/atividade, READMEs com progresso e índice no README raiz.
+formação, pastas por módulo e por desafio, READMEs com progresso e índice no README raiz.
 
 Script: `.agents/skills/dio-formacoes/scripts/dio.py` (Python 3.8+, stdlib, Linux e Windows).
+
+## Onde esta skill é lida
+
+- **Fonte única:** `.agents/skills/dio-formacoes/` (este arquivo). Lida pelo Google (Gemini CLI e
+  Antigravity) e pelo Codex. Edite só aqui.
+- **Claude Code:** `.claude/skills/dio-formacoes/SKILL.md` é um stub que aponta para este arquivo.
+  Não duplique regras lá.
 Abaixo, `DIO` = `python3 .agents/skills/dio-formacoes/scripts/dio.py` (Windows: `py ...`).
 
 ## Regras
@@ -46,11 +53,12 @@ dados sem perder pastas, status ou campos extras.
   Já roda o `build`.
 - "Baixar Certificado" na página da DIO = concluído; o `parse` detecta isso.
 
-## Fluxo 3: iniciar um desafio ou curso com código
+## Fluxo 3: iniciar um desafio com código
 
 1. Leia o `AMBIENTE.md` da formação e use o ambiente isolado dela (ex.: `fvm flutter ...`).
-2. Crie o projeto **dentro da pasta da atividade** (ex.: `fvm flutter create --project-name
-   calculadora_imc .`; nomes Dart em snake_case).
+2. Crie o projeto **dentro da pasta do desafio** (ex.: `fvm flutter create --project-name
+   calculadora_imc .`; nomes Dart em snake_case). Anotações de curso vão na seção "Minhas
+   anotações" do README da formação, não em pasta nova.
 3. Preencha o README da atividade (enunciado, solução, como executar).
 4. Commit local: `feat(<slug>): desafio <nome>`.
 
@@ -75,8 +83,11 @@ push quando o usuário pedir.
 }
 ```
 
-- Só `curso`, `desafio` e `desafio-codigo` ganham pasta. Materiais complementares e avaliação
-  aparecem só na tabela.
+- **Só desafios ganham pasta** (`desafio` e `desafio-codigo`): são o código que vai para o GitHub
+  e para a DIO. Cursos (vídeo-aulas), materiais complementares e avaliação aparecem só na tabela
+  do README da formação, sem pasta nem README próprio.
+- Cada desafio tem um bloco AUTO com enunciado e entrega (preenchidos por `entregas` e `entregar`).
+  Enunciado vem de `_raw/<slug>/entregas.md`, colado da página do desafio na DIO.
 - `pasta` é gravada uma vez e não muda (links estáveis). Campos extras (ex.: `"repo"`) são preservados.
 - Slugs ficam limitados a 40 caracteres por causa do limite de caminho no Windows.
 

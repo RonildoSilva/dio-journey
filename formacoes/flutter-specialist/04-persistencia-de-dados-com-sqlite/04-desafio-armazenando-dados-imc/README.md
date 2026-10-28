@@ -1,12 +1,23 @@
+<!-- AUTO:START (gerado por dio.py - não edite dentro deste bloco) -->
 # Armazenando os Dados de IMC e Persistindo Localmente
 
-| Formação | Módulo | Tipo | Nível | Carga |
-|---|---|---|---|---|
-| [Formação Flutter Specialist](../../README.md) | Persistência de Dados com SQLite | Desafio de projeto | Intermediário | 1h |
+| Formação | Módulo | Tipo | Nível | Carga | Status |
+|---|---|---|---|---|:-:|
+| [Formação Flutter Specialist](../../README.md) | Persistência de Dados com SQLite | Desafio de projeto | Intermediário | 1h | ⬜ |
 
-## Descrição do desafio
+## 📋 Enunciado
 
-_Cole aqui o enunciado da DIO._
+_Ainda não registrado: cole a página do desafio em `_raw/<formacao>/entregas.md` e rode `dio.py entregas`._
+
+## 📦 Entrega
+
+| Status | Data | Link enviado à DIO |
+|:-:|:-:|---|
+| ⏳ Pendente | - | - |
+
+- Link desta pasta no GitHub (para enviar à DIO): `https://github.com/RonildoSilva/dio-journey/tree/main/formacoes/flutter-specialist/04-persistencia-de-dados-com-sqlite/04-desafio-armazenando-dados-imc`
+- Todas as entregas da formação: [ENTREGAS.md](../../ENTREGAS.md)
+<!-- AUTO:END -->
 
 ## Solução
 
@@ -17,7 +28,3 @@ _O que foi feito, decisões e aprendizados._
 ```bash
 # comandos
 ```
-
-## Entrega
-
-- Link enviado à DIO: 

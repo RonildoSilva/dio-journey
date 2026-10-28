@@ -1,12 +1,23 @@
+<!-- AUTO:START (gerado por dio.py - não edite dentro deste bloco) -->
 # Subindo o Seu Projeto Flutter no GitHub
 
-| Formação | Módulo | Tipo | Nível | Carga |
-|---|---|---|---|---|
-| [Formação Flutter Specialist](../../README.md) | Introdução ao Flutter | Desafio de projeto | Básico | 1h |
+| Formação | Módulo | Tipo | Nível | Carga | Status |
+|---|---|---|---|---|:-:|
+| [Formação Flutter Specialist](../../README.md) | Introdução ao Flutter | Desafio de projeto | Básico | 1h | ⬜ |
 
-## Descrição do desafio
+## 📋 Enunciado
 
-_Cole aqui o enunciado da DIO._
+Chegou a sua hora de colocar a mão na massa e assumir o protagonismo. Neste primeiro módulo você conheceu o Flutter e preparou todo o ambiente para o desenvolvimento. Isso será imprescindível para os próximos módulos. Sendo assim, os seus objetivos neste Desafio são: Instalar o Flutter, configurar o Ambiente, criar um projeto e, por fim, subir o seu projeto do GitHub.
+
+## 📦 Entrega
+
+| Status | Data | Link enviado à DIO |
+|:-:|:-:|---|
+| ⏳ Pendente | - | - |
+
+- Link desta pasta no GitHub (para enviar à DIO): `https://github.com/RonildoSilva/dio-journey/tree/main/formacoes/flutter-specialist/01-introducao-ao-flutter/04-desafio-subindo-projeto-flutter-github`
+- Todas as entregas da formação: [ENTREGAS.md](../../ENTREGAS.md)
+<!-- AUTO:END -->
 
 ## Solução
 
@@ -17,7 +28,3 @@ _O que foi feito, decisões e aprendizados._
 ```bash
 # comandos
 ```
-
-## Entrega
-
-- Link enviado à DIO: 
