@@ -38,7 +38,7 @@ git sparse-checkout set formacoes/flutter-specialist/02-linguagem-de-programacao
 
 | Quero… | Comando |
 |---|---|
-| Adicionar outra pasta | `git sparse-checkout add formacoes/python-ai-backend` |
+| Adicionar outra pasta | `git sparse-checkout add formacoes/python-fundamentals` |
 | Pegar a formação inteira | `git sparse-checkout set formacoes/flutter-specialist` |
 | Ver o que está ativo | `git sparse-checkout list` |
 | Voltar a ter o repo todo | `git sparse-checkout disable` |
