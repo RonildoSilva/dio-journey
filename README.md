@@ -7,7 +7,7 @@
 
 | Nível | XP | Horas de estudo | Certificados | Conquistas | Skills | Formações aqui |
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| **8** | `█████████░` 4370 / 4712 (93%) | 99h | 53 | 48 | 11 | 2 |
+| **8** | `██████████` 4610 / 4712 (98%) | 99h | 53 | 48 | 11 | 2 |
 
 **Tecnologias estudadas** (pelos certificados e formações):
 
