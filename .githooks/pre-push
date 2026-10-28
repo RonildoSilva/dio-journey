@@ -1,0 +1,5 @@
+#!/bin/sh
+# Encaminha para o hook em Python (Linux e Windows/Git Bash). Lógica em pre_push.py.
+DIR="$(dirname "$0")"
+if command -v python3 >/dev/null 2>&1; then exec python3 "$DIR/pre_push.py" "$@"; fi
+exec py "$DIR/pre_push.py" "$@"
