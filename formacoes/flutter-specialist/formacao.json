@@ -1,7 +1,7 @@
 {
   "slug": "flutter-specialist",
   "stack": "flutter",
-  "url": "",
+  "url": "https://web.dio.me/track/formacao-flutter-specialist",
   "raw": "flutter.md",
   "nome": "Formação Flutter Specialist",
   "nivel": "Intermediário",
@@ -52,7 +52,7 @@
           "tipo": "complementar",
           "nivel": "Básico",
           "horas": 1,
-          "status": "pendente"
+          "status": "concluido"
         }
       ],
       "pasta": "01-introducao-ao-flutter"

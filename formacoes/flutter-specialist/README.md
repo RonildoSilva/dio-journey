@@ -3,6 +3,8 @@
 
 > Intermediário · 71h · stack `flutter`
 
+🔗 [Página na DIO](https://web.dio.me/track/formacao-flutter-specialist)
+
 Aprenda a desenvolver Aplicativos completos com Flutter, desde a base com Dart até como o fluxo de persistência de dados com Hive e SQLite. Além disso, você irá dominar como consumir APIs direto no seu APP, conhecer os componentes e widgets para construção de uma aplicação rica em interatividade com o usuário. Por fim, explore o funcionamento de gerenciamento de estado com MobX e Provider, além de conhecer boas práticas na hora de codificar seus APPs com os principais padrões de mercado.
 
 **Pré-requisitos:** Conhecimentos básicos em Lógica de Programação e Pensamento Computacional
@@ -11,7 +13,7 @@ Aprenda a desenvolver Aplicativos completos com Flutter, desde a base com Dart a
 
 | | |
 |---|---|
-| Atividades | `█░░░░░░░░░░░░░░░░░░░` 3/53 (6%) |
+| Atividades | `██░░░░░░░░░░░░░░░░░░` 4/53 (8%) |
 | Desafios entregues | `░░░░░░░░░░░░░░░░░░░░` 0/9 (0%) · [ver entregas](ENTREGAS.md) |
 
 ## Ambiente
@@ -36,7 +38,7 @@ Depois, use sempre `fvm flutter ...`. Detalhes e Dev Container em [AMBIENTE.md](
 
 ## Conteúdo
 
-### Introdução ao Flutter (3/5)
+### Introdução ao Flutter (4/5)
 
 | | Atividade | Tipo | Nível | Carga |
 |:-:|---|---|---|---|
@@ -44,7 +46,7 @@ Depois, use sempre `fvm flutter ...`. Detalhes e Dev Container em [AMBIENTE.md](
 | ✅ | Ambiente de Desenvolvimento Flutter | Curso | Básico | 1h |
 | ✅ | Criando Meu Primeiro Projeto em Flutter | Curso | Básico | 1h |
 | ⬜ | 🚀 [Subindo o Seu Projeto Flutter no GitHub](01-introducao-ao-flutter/04-desafio-subindo-projeto-flutter-github/) | Desafio de projeto | Básico | 1h |
-| ⬜ | Materiais Complementares - Primeiros Passos com Flutter | Material complementar | Básico | 1h |
+| ✅ | Materiais Complementares - Primeiros Passos com Flutter | Material complementar | Básico | 1h |
 
 ### Linguagem de Programação Dart (0/8)
 
