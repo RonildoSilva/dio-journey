@@ -1,0 +1,9 @@
+# Dados pessoais: certificados (nome completo nos PDFs) e banco local
+dados/
+
+# Perfil do navegador (sessão logada no DIO)
+perfil/
+
+# Ambiente isolado da ferramenta
+.venv/
+__pycache__/
