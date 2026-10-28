@@ -6,8 +6,9 @@ Funciona em Linux e Windows (apenas biblioteca padrão, Python 3.8+).
 
 Subcomandos:
   parse  RAW --slug SLUG --stack STACK [--nome NOME] [--url URL]
-         Lê o texto copiado da página da formação na DIO e grava/atualiza
-         formacoes/<SLUG>/formacao.json (preserva pastas e status já existentes).
+         Lê a página da formação na DIO e grava/atualiza formacoes/<SLUG>/formacao.json
+         (preserva pastas e status já existentes). RAW pode ser o texto copiado (.md/.txt)
+         ou a página salva pelo navegador (.html, "Salvar como" com a formação aberta).
 
   build  Gera/atualiza a estrutura: pastas de módulos e de desafios, READMEs,
          arquivos de ambiente da stack e o índice no README raiz.
@@ -39,6 +40,7 @@ import re
 import shutil
 import sys
 import unicodedata
+from html.parser import HTMLParser
 from pathlib import Path
 
 SKILL_DIR = Path(__file__).resolve().parent.parent
@@ -146,13 +148,57 @@ def classificar(tipo_raw, titulo):
     return TIPOS.get(tipo_raw.lower(), slugify(tipo_raw) or "outro")
 
 
+class _TextoDaPagina(HTMLParser):
+    """Converte a página salva em linhas de texto na ordem do documento, como o "copiar" do
+    navegador: inclui o alt das imagens ("Imagem do bootcamp <título>") e ignora script/estilo/svg."""
+    IGNORAR = {"script", "style", "svg", "noscript", "head"}
+
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.linhas, self._ignorando = [], 0
+
+    def handle_starttag(self, tag, attrs):
+        if tag in self.IGNORAR:
+            self._ignorando += 1
+        elif tag == "img" and not self._ignorando:
+            alt = dict(attrs).get("alt") or ""
+            if alt.strip():
+                self.linhas.append(alt.strip())
+
+    def handle_endtag(self, tag):
+        if tag in self.IGNORAR and self._ignorando:
+            self._ignorando -= 1
+
+    def handle_data(self, data):
+        texto = re.sub(r"\s+", " ", data).strip()
+        # linhas só com glifo de fonte de ícones (área de uso privado do Unicode) não são texto
+        if not self._ignorando and texto and not all("" <= ch <= "" for ch in texto):
+            self.linhas.append(texto)
+
+
+def html_para_texto(html):
+    p = _TextoDaPagina()
+    p.feed(html)
+    return "\n".join(p.linhas)
+
+
+MARCAS_DEPOIS_DO_NOME = ("adicionar na lista", "matricular agora", "cancelar matrícula", "cancelar matricula")
+
+
 def parse_raw(text):
     lines = [l.strip() for l in text.splitlines()]
     ne = [l for l in lines if l]
 
     # ---- cabeçalho
     nome, i_nome = None, 0
+    # página salva: o nome vem logo antes de "Adicionar na lista"/"Matricular agora"
     for i, l in enumerate(ne):
+        if l.lower() in MARCAS_DEPOIS_DO_NOME and i > 0:
+            nome, i_nome = ne[i - 1], i - 1
+            break
+    for i, l in enumerate(ne):
+        if nome is not None:
+            break
         if l.lower() == "abrir menu pessoal" and i + 1 < len(ne):
             nome, i_nome = ne[i + 1], i + 1
             break
@@ -189,7 +235,7 @@ def parse_raw(text):
             i += 1
             continue
         if l.startswith("Imagem do bootcamp"):
-            bloco = ne[i + 1:i + 7]
+            bloco = ne[i + 1:i + 9]  # tipo, título, nível, ícone, horas, status (+ folga)
             tipo_raw = bloco[0] if bloco else ""
             titulo = bloco[1] if len(bloco) > 1 else l.replace("Imagem do bootcamp", "").strip()
             nivel_a, horas_a, status_raw, consumed = None, None, "", 2
@@ -257,7 +303,9 @@ def merge(old, new):
 
 def cmd_parse(args):
     root = Path(args.root)
-    raw = Path(args.raw).read_text(encoding="utf-8")
+    raw = Path(args.raw).read_text(encoding="utf-8", errors="replace")
+    if Path(args.raw).suffix.lower() in (".html", ".htm"):
+        raw = html_para_texto(raw)
     data = parse_raw(raw)
     if args.nome:
         data["nome"] = args.nome
