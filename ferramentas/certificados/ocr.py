@@ -92,6 +92,8 @@ def sem_ruido_inicial(texto):
 
 def main():
     import sys
+    if not LISTA_API.exists():
+        raise SystemExit("Sem dados/certificados_api.json: rode coleta.py e baixar.py antes.")
     resultado = {} if "--todos" in sys.argv or not SAIDA.exists() else json.loads(SAIDA.read_text(encoding="utf-8"))
     falhas, novos = [], []
     for pdf in sorted(PDFS.glob("*.pdf")):

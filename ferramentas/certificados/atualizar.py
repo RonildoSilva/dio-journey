@@ -90,7 +90,9 @@ def main():
     else:
         print(f"→ DIO não consultado: {motivo}", flush=True)
 
-    if shutil.which("tesseract") and shutil.which("pdfimages"):
+    if not (DADOS / "certificados_api.json").exists():
+        print("→ OCR pulado: ainda não há certificados coletados (rode login.py e depois este script)", flush=True)
+    elif shutil.which("tesseract") and shutil.which("pdfimages"):
         rodar("OCR dos PDFs novos", [sys.executable, "ocr.py"])
     else:
         print("→ OCR pulado: instale tesseract-ocr (por) e poppler-utils", flush=True)
