@@ -8,8 +8,6 @@ build/
 .idea/
 
 # FVM (SDK baixado localmente)
-.fvm/flutter_sdk
-.fvm/versions/
 
 # Android
 **/android/.gradle/
@@ -30,3 +28,6 @@ key.properties
 google-services.json
 GoogleService-Info.plist
 firebase_options.dart
+
+# FVM Version Cache
+.fvm/

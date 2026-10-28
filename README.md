@@ -69,7 +69,4 @@ python3 .agents/skills/dio-formacoes/scripts/dio.py marcar flutter-specialist "c
   **[docs/GIT-GUIA.md](docs/GIT-GUIA.md)**
 - No Windows: `git config --global core.longpaths true`
 
-## 📝 Rascunhos
 
-`_raw/` guarda o texto copiado das páginas da DIO e é ignorado pelo git. O que importa é
-extraído para `formacoes/<formacao>/formacao.json`.

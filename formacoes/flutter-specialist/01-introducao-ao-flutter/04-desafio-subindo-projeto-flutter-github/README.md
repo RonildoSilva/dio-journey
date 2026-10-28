@@ -25,6 +25,25 @@ _O que foi feito, decisões e aprendizados._
 
 ## Como executar
 
+Flutter 3.47.8 (Dart 3.13.7), fixado em `.fvmrc` da formação. Com FVM instalado, dentro da pasta do projeto:
+
 ```bash
-# comandos
+fvm flutter pub get
+fvm flutter run -d chrome    # sem dependências extras (precisa do Chrome instalado)
+fvm flutter test
 ```
+
+Para rodar como app desktop no Linux (`fvm flutter run -d linux`), instale antes as dependências de build:
+
+```bash
+sudo apt install cmake ninja-build clang pkg-config libgtk-3-dev
+```
+
+Se o `fvm` não for encontrado no Linux, grave o caminho do instalador no `~/.bashrc` e recarregue o shell (uma vez por máquina):
+
+```bash
+echo 'export PATH="$HOME/fvm/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+```
+
+No Windows, os mesmos comandos funcionam no PowerShell.

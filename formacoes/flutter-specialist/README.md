@@ -16,7 +16,23 @@ Aprenda a desenvolver Aplicativos completos com Flutter, desde a base com Dart a
 
 ## Ambiente
 
-Instruções para Linux e Windows em [AMBIENTE.md](AMBIENTE.md).
+Instale o FVM uma vez por máquina e depois a versão fixada pela formação (`.fvmrc`):
+
+| Passo | Linux | Windows (PowerShell) |
+|---|---|---|
+| 1. Instalar o FVM | `curl -fsSL https://fvm.app/install.sh \| bash` | `choco install fvm` ou `dart pub global activate fvm` |
+| 2. Instalar a versão da formação (dentro desta pasta) | `fvm install` | `fvm install` |
+
+Se o terminal não encontrar o `fvm` depois do passo 1 (Linux), grave o caminho no `~/.bashrc` e recarregue o shell (feito uma vez por máquina):
+
+```bash
+echo 'export PATH="$HOME/fvm/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+```
+
+No Windows o `choco` ou o `dart pub global` já colocam o `fvm` no PATH. Se não achar, reabra o PowerShell.
+
+Depois, use sempre `fvm flutter ...`. Detalhes e Dev Container em [AMBIENTE.md](AMBIENTE.md).
 
 ## Conteúdo
 
