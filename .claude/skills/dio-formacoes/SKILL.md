@@ -10,6 +10,7 @@ Este é o stub da skill `dio-formacoes` para o Claude Code. A fonte única das r
 **[.agents/skills/dio-formacoes/SKILL.md](../../../.agents/skills/dio-formacoes/SKILL.md)**
 
 Leia esse arquivo antes de agir e siga as regras dele (nunca dar push, sempre atualizar o README,
-comandos para Linux e Windows, só desafios ganham pasta).
+comandos para Linux e Windows, só desafios ganham pasta, a "Solução" de cada desafio é escrita a
+partir do que está implementado no repositório).
 
 Script: `.agents/skills/dio-formacoes/scripts/dio.py` (Linux: `python3`, Windows: `py`).

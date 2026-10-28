@@ -55,14 +55,26 @@ dados sem perder pastas, status ou campos extras.
   Já roda o `build`.
 - "Baixar Certificado" na página da DIO = concluído; o `parse` detecta isso.
 
-## Fluxo 3: iniciar um desafio com código
+## Fluxo 3: desafio com código, do início à entrega
 
 1. Leia o `AMBIENTE.md` da formação e use o ambiente isolado dela (ex.: `fvm flutter ...`).
 2. Crie o projeto **dentro da pasta do desafio** (ex.: `fvm flutter create --project-name
-   calculadora_imc .`; nomes Dart em snake_case). Anotações de curso vão na seção "Minhas
+   calculadora_imc .`; nomes Dart em snake_case). Para não sobrescrever o README do desafio, gere
+   numa pasta temporária e copie sem sobrescrever. Anotações de curso vão na seção "Minhas
    anotações" do README da formação, não em pasta nova.
-3. Preencha o README da atividade (enunciado, solução, como executar).
-4. Commit local: `feat(<slug>): desafio <nome>`.
+3. Revise o `.gitignore` da entrega (ex.: Flutter: versionar `gradlew`, `gradlew.bat` e
+   `gradle-wrapper.jar`; manter `pubspec.lock`) e valide (`analyze`, `test`).
+4. Preencha o README do desafio, fora do bloco AUTO:
+   - **Como executar:** versão fixada da stack e comandos (Linux e Windows), incluindo o que for
+     preciso no sistema (ex.: PATH do FVM, `cmake`/`gtk` para desktop Linux).
+   - **Solução:** um ou dois parágrafos curtos, escritos **a partir do que está no repositório**
+     (ler a pasta: versões, comandos usados, o que o app faz, decisões como ajustes no `.gitignore`,
+     validações que passaram). Sem inventar nada que não esteja implementado; sem listas longas.
+5. Commits separados por assunto, só quando o usuário pedir:
+   `feat(<slug>): desafio <nome>` para o código e `docs(<slug>): solução do desafio <nome>` para o texto.
+6. Push só com pedido explícito. O hook `pre-push` marca como entregue o desafio com código novo,
+   atualiza perfil/certificados/README e, se algo mudar, commita e pede um segundo `git push`.
+   Link para enviar à DIO: a pasta do desafio no GitHub (aparece no README do desafio e no `ENTREGAS.md`).
 
 ## Fluxo 4: extrair projeto para repo próprio
 
