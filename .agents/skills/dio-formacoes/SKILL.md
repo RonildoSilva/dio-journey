@@ -1,6 +1,6 @@
 ---
 name: dio-formacoes
-description: Organiza formações, bootcamps, cursos e desafios de projeto da plataforma DIO (dio.me) no repositório dio-journey. Use quando o usuário colar o conteúdo de uma página de formação/bootcamp da DIO, pedir para adicionar ou atualizar uma formação, marcar cursos/desafios como concluídos, iniciar um desafio de projeto, criar o ambiente de uma stack, ou extrair um projeto para repositório próprio.
+description: Organiza formações, bootcamps, cursos e desafios de projeto da plataforma DIO (dio.me) no repositório dio-journey. Use quando o usuário colar o conteúdo de uma página de formação/bootcamp da DIO, pedir para adicionar ou atualizar uma formação, marcar cursos/desafios como concluídos, iniciar um desafio de projeto, criar o ambiente de uma stack, extrair um projeto para repositório próprio, ou baixar e organizar os certificados da conta DIO (ferramentas/certificados).
 ---
 
 # DIO Formações
@@ -29,13 +29,15 @@ Abaixo, `DIO` = `python3 .agents/skills/dio-formacoes/scripts/dio.py` (Windows: 
 
 ## Fluxo 1: nova formação (usuário colou a página da DIO)
 
-1. Salve o texto colado em `_raw/<slug>.md` (se ainda não estiver lá).
+1. Guarde a página em `_raw/<slug>/`. Preferível: **salvar a página** no navegador (Ctrl+S,
+   "Página da Web, somente HTML") com a formação aberta e logado, como `pagina.html`. Alternativa:
+   colar o texto copiado em `pagina.md`. A página salva traz o status real ("Baixar Certificado" = concluído).
 2. Defina a **stack** pelo conteúdo: `flutter`, `python`, `node`, `java`, `dotnet` ou `generic`.
    Se houver várias linguagens, use a predominante; se for ambíguo, pergunte ao usuário.
    Para uma stack nova, crie `templates/stacks/<stack>/` (veja "Nova stack").
 3. Converta:
    ```bash
-   DIO parse _raw/<slug>.md --slug <slug> --stack <stack> [--url <link da DIO>]
+   DIO parse _raw/<slug>/pagina.html --slug <slug> --stack <stack> [--url <link da DIO>]
    ```
    O slug é curto, sem "formacao-" (ex.: `flutter-specialist`, `python-ai-backend`).
 4. Confira o resumo impresso (módulos, atividades, desafios). Se faltou algo, abra o
@@ -101,3 +103,46 @@ Crie `templates/stacks/<stack>/` contendo:
 
 O `build` copia esses arquivos para a formação **só se ainda não existirem** (o usuário pode
 personalizar). Depois, atualize a tabela "Ambientes isolados" do README raiz.
+
+## Fluxo 5: certificados da DIO (ferramentas/certificados)
+
+Ferramenta fora do git: `ferramentas/certificados/` (ver o README da pasta). Dados pessoais
+(PDFs, banco, sessão do navegador) ficam em `dados/` e `perfil/`, ambos ignorados.
+
+Ordem de uso (cada passo roda **uma vez**; rodar de novo só baixa o que falta):
+1. `login.py`: login manual no DIO, sessão salva em `perfil/`. Nunca guardar senha.
+   `login.py --verificar` testa a sessão (abre janela; sem janela o DIO manda para o login).
+2. `coleta.py`: lista os certificados rolando a página (rolagem infinita, 12 por página).
+3. `baixar.py`: baixa os PDFs em `dados/pdf/<codigo>.pdf`, pulando os que já existem.
+4. `banco.py`: monta `dados/certificados.db` a partir de `dados/certificados_api.json`.
+5. `capturar_play.py --section-type <tipo>`: catálogo por tipo (`formation`, `course`, ...).
+6. Estrutura das formações (módulos e cursos): **não** é capturada automaticamente. As páginas de
+   formação redirecionam para o login de forma instável e carregam os módulos sob demanda. Use a
+   página salva + `dio.py parse` (Fluxo 1); o vínculo certificado ↔ formação é feito pelo título.
+7. `ocr.py`: lê nome, data e carga horária dos PDFs com tesseract (local, sem rede).
+8. `capturar_perfil.py`: nível, XP e conquistas do perfil público (uma visita).
+9. `banco.py` e depois `organizar.py`: banco (vínculo muitos-para-muitos certificado <-> formação),
+   PDFs em `dados/certificados/<formação>/` e os blocos PERFIL e CERTIFICADOS do README raiz.
+
+Aprendizados que valem para qualquer captura no DIO:
+- **Redirecionamento silencioso:** a página passa pelo `auth.dio.me` por alguns segundos e volta
+  para `web.dio.me`. Nunca ler a URL logo após o carregamento; esperar a URL assentar.
+- **Headless não serve para checar sessão:** o DIO manda para o login. Usar janela visível.
+- **Dados pela própria página:** capturar as respostas JSON que a página recebe (`page.on("response")`).
+  Não extrair tokens do navegador nem chamar a API com credenciais tiradas do perfil.
+- **Carregamento preguiçoso:** a lista de módulos de uma formação é pedida por módulo, quando
+  aberto. Rolar a página não basta. Antes de confiar numa contagem, comparar com `track_activities`
+  do catálogo (`courses`).
+- **Catálogo completo por tipo:** `/play` com o filtro do tipo (Curso 758, Bootcamp 267,
+  Projetos 257, Masterclass 105, Formação 73). O filtro de tipo é o parâmetro `section_type`.
+- **PDF sem texto:** o certificado é uma imagem JPEG. Ler nome e carga horária exige OCR.
+  Ferramentas: `pdfimages` (extrai a imagem) e `tesseract` com o pacote `por` (OCR, `ocr.py`).
+- **Ferramentas do sistema usadas (citar no README e instalar em cada máquina):** Python 3.12+,
+  Google Chrome, poppler-utils (`pdftotext`, `pdfimages`), tesseract-ocr com pacote `por`.
+  Tabela completa com comandos Linux e Windows em `ferramentas/certificados/README.md`.
+
+**Tudo de uma vez:** `atualizar.py` roda as etapas em ordem; o hook `.githooks/pre-push` o chama
+a cada push (ativar com `git config core.hooksPath .githooks`). Coleta incompleta nunca
+sobrescreve dados bons; consultas ao DIO respeitam intervalo de 30 minutos.
+
+Não repetir downloads sem pedido. Antes de uma nova passagem, conferir o que já está salvo.

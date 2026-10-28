@@ -1,6 +1,6 @@
 ---
 name: dio-formacoes
-description: Organiza formações, bootcamps, cursos e desafios de projeto da plataforma DIO (dio.me) no repositório dio-journey. Use quando o usuário colar o conteúdo de uma página de formação/bootcamp da DIO, pedir para adicionar ou atualizar uma formação, marcar cursos/desafios como concluídos, registrar enunciados ou entregas de desafios, iniciar um desafio de projeto, criar o ambiente de uma stack, ou extrair um projeto para repositório próprio.
+description: Organiza formações, bootcamps, cursos e desafios de projeto da plataforma DIO (dio.me) no repositório dio-journey. Use quando o usuário colar o conteúdo de uma página de formação/bootcamp da DIO, pedir para adicionar ou atualizar uma formação, marcar cursos/desafios como concluídos, registrar enunciados ou entregas de desafios, iniciar um desafio de projeto, criar o ambiente de uma stack, extrair um projeto para repositório próprio, ou baixar e organizar os certificados da conta DIO (ferramentas/certificados).
 ---
 
 # DIO Formações (Claude Code)
