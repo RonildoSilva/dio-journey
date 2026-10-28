@@ -38,13 +38,13 @@
           "tipo": "desafio",
           "nivel": "Básico",
           "horas": 1,
-          "status": "pendente",
+          "status": "concluido",
           "pasta": "04-desafio-subindo-projeto-flutter-github",
           "enunciado": "Chegou a sua hora de colocar a mão na massa e assumir o protagonismo. Neste primeiro módulo você conheceu o Flutter e preparou todo o ambiente para o desenvolvimento. Isso será imprescindível para os próximos módulos. Sendo assim, os seus objetivos neste Desafio são: Instalar o Flutter, configurar o Ambiente, criar um projeto e, por fim, subir o seu projeto do GitHub.",
           "entrega": {
-            "status": "pendente",
-            "link": "",
-            "data": ""
+            "status": "entregue",
+            "link": "https://github.com/RonildoSilva/dio-journey/tree/main/formacoes/flutter-specialist/01-introducao-ao-flutter/04-desafio-subindo-projeto-flutter-github",
+            "data": "2026-10-28"
           }
         },
         {

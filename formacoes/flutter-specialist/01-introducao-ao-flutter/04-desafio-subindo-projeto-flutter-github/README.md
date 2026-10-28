@@ -3,7 +3,7 @@
 
 | Formação | Módulo | Tipo | Nível | Carga | Status |
 |---|---|---|---|---|:-:|
-| [Formação Flutter Specialist](../../README.md) | Introdução ao Flutter | Desafio de projeto | Básico | 1h | ⬜ |
+| [Formação Flutter Specialist](../../README.md) | Introdução ao Flutter | Desafio de projeto | Básico | 1h | ✅ |
 
 ## 📋 Enunciado
 
@@ -13,7 +13,7 @@ Chegou a sua hora de colocar a mão na massa e assumir o protagonismo. Neste pri
 
 | Status | Data | Link enviado à DIO |
 |:-:|:-:|---|
-| ⏳ Pendente | - | - |
+| 📦 Entregue | 2026-10-28 | [https://github.com/RonildoSilva/dio-journey/tree/main/formacoes/flutter-specialist/01-introducao-ao-flutter/04-desafio-subindo-projeto-flutter-github](https://github.com/RonildoSilva/dio-journey/tree/main/formacoes/flutter-specialist/01-introducao-ao-flutter/04-desafio-subindo-projeto-flutter-github) |
 
 - Link desta pasta no GitHub (para enviar à DIO): `https://github.com/RonildoSilva/dio-journey/tree/main/formacoes/flutter-specialist/01-introducao-ao-flutter/04-desafio-subindo-projeto-flutter-github`
 - Todas as entregas da formação: [ENTREGAS.md](../../ENTREGAS.md)

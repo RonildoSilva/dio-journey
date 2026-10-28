@@ -28,7 +28,7 @@ tudo organizado em um só lugar.
 <!-- AUTO:START (gerado por dio.py - não edite dentro deste bloco) -->
 | Formação | Stack | Progresso | Entregas |
 |---|---|---|---|
-| [Formação Flutter Specialist](formacoes/flutter-specialist/) | `flutter` | `█░░░░░░░░░` 4/53 (8%) | [0/9](formacoes/flutter-specialist/ENTREGAS.md) |
+| [Formação Flutter Specialist](formacoes/flutter-specialist/) | `flutter` | `█░░░░░░░░░` 5/53 (9%) | [1/9](formacoes/flutter-specialist/ENTREGAS.md) |
 | [Formação Python Fundamentals](formacoes/python-fundamentals/) | `python` | `████░░░░░░` 9/22 (41%) | [0/3](formacoes/python-fundamentals/ENTREGAS.md) |
 <!-- AUTO:END -->
 
@@ -41,7 +41,7 @@ tudo organizado em um só lugar.
 
 | Formação | Certificados | Horas | Atividades concluídas |
 |---|:-:|:-:|:-:|
-| [Formação Flutter Specialist](formacoes/flutter-specialist/) | 4 | 4 | 4/53 |
+| [Formação Flutter Specialist](formacoes/flutter-specialist/) | 4 | 4 | 5/53 |
 | [Formação Python Fundamentals](formacoes/python-fundamentals/) | 9 | 13 | 9/22 |
 | _Avulsos (sem formação no repositório)_ | 40 | 82 | - |
 

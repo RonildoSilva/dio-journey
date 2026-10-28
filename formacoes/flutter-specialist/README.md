@@ -13,8 +13,8 @@ Aprenda a desenvolver Aplicativos completos com Flutter, desde a base com Dart a
 
 | | |
 |---|---|
-| Atividades | `██░░░░░░░░░░░░░░░░░░` 4/53 (8%) |
-| Desafios entregues | `░░░░░░░░░░░░░░░░░░░░` 0/9 (0%) · [ver entregas](ENTREGAS.md) |
+| Atividades | `██░░░░░░░░░░░░░░░░░░` 5/53 (9%) |
+| Desafios entregues | `██░░░░░░░░░░░░░░░░░░` 1/9 (11%) · [ver entregas](ENTREGAS.md) |
 
 ## Ambiente
 
@@ -38,14 +38,14 @@ Depois, use sempre `fvm flutter ...`. Detalhes e Dev Container em [AMBIENTE.md](
 
 ## Conteúdo
 
-### Introdução ao Flutter (4/5)
+### Introdução ao Flutter (5/5)
 
 | | Atividade | Tipo | Nível | Carga |
 |:-:|---|---|---|---|
 | ✅ | Introdução ao Flutter | Curso | Básico | 1h |
 | ✅ | Ambiente de Desenvolvimento Flutter | Curso | Básico | 1h |
 | ✅ | Criando Meu Primeiro Projeto em Flutter | Curso | Básico | 1h |
-| ⬜ | 🚀 [Subindo o Seu Projeto Flutter no GitHub](01-introducao-ao-flutter/04-desafio-subindo-projeto-flutter-github/) | Desafio de projeto | Básico | 1h |
+| ✅ | 🚀 [Subindo o Seu Projeto Flutter no GitHub](01-introducao-ao-flutter/04-desafio-subindo-projeto-flutter-github/) · [📦](ENTREGAS.md) | Desafio de projeto | Básico | 1h |
 | ✅ | Materiais Complementares - Primeiros Passos com Flutter | Material complementar | Básico | 1h |
 
 ### Linguagem de Programação Dart (0/8)
