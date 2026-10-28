@@ -3,12 +3,12 @@
 
 Desafios de projeto da formação, enunciados e o que foi enviado à DIO. Voltar ao [README da formação](README.md).
 
-`██░░░░░░░░░░░░░░░░░░` 1/9 (11%)
+`████░░░░░░░░░░░░░░░░` 2/9 (22%)
 
 | # | Desafio | Módulo | Entrega | Data | Link enviado |
 |:-:|---|---|:-:|:-:|---|
 | 1 | [Subindo o Seu Projeto Flutter no GitHub](01-introducao-ao-flutter/04-desafio-subindo-projeto-flutter-github/) | Introdução ao Flutter | 📦 Entregue | 2026-10-28 | [https://github.com/RonildoSilva/dio-journey/tree/main/formacoes/flutter-specialist/01-introducao-ao-flutter/04-desafio-subindo-projeto-flutter-github](https://github.com/RonildoSilva/dio-journey/tree/main/formacoes/flutter-specialist/01-introducao-ao-flutter/04-desafio-subindo-projeto-flutter-github) |
-| 2 | [Criando uma Calculadora de IMC Com Flutter](02-linguagem-de-programacao-dart/07-desafio-criando-calculadora-imc-flutter/) | Linguagem de Programação Dart | ⏳ Pendente | - | - |
+| 2 | [Criando uma Calculadora de IMC Com Flutter](02-linguagem-de-programacao-dart/07-desafio-criando-calculadora-imc-flutter/) | Linguagem de Programação Dart | 📦 Entregue | 2026-10-28 | [https://github.com/RonildoSilva/dio-journey/tree/main/formacoes/flutter-specialist/02-linguagem-de-programacao-dart/07-desafio-criando-calculadora-imc-flutter](https://github.com/RonildoSilva/dio-journey/tree/main/formacoes/flutter-specialist/02-linguagem-de-programacao-dart/07-desafio-criando-calculadora-imc-flutter) |
 | 3 | [Aprimorando a sua Calculadora de IMC com Flutter](03-navegacao-e-widgets-em-flutter/05-desafio-aprimorando-calculadora-imc/) | Navegação e Widgets em Flutter | ⏳ Pendente | - | - |
 | 4 | [Armazenando os Dados de IMC e Persistindo Localmente](04-persistencia-de-dados-com-sqlite/04-desafio-armazenando-dados-imc/) | Persistência de Dados com SQLite | ⏳ Pendente | - | - |
 | 5 | [Criando um App Flutter do Zero Para o Consumo da API do ViaCEP](05-consumindo-apis-com-flutter/06-desafio-criando-app-flutter-zero-consumo/) | Consumindo APIs com Flutter | ⏳ Pendente | - | - |

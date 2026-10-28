@@ -13,8 +13,8 @@ Aprenda a desenvolver Aplicativos completos com Flutter, desde a base com Dart a
 
 | | |
 |---|---|
-| Atividades | `██░░░░░░░░░░░░░░░░░░` 5/53 (9%) |
-| Desafios entregues | `██░░░░░░░░░░░░░░░░░░` 1/9 (11%) · [ver entregas](ENTREGAS.md) |
+| Atividades | `██░░░░░░░░░░░░░░░░░░` 6/53 (11%) |
+| Desafios entregues | `████░░░░░░░░░░░░░░░░` 2/9 (22%) · [ver entregas](ENTREGAS.md) |
 
 ## Ambiente
 
@@ -48,7 +48,7 @@ Depois, use sempre `fvm flutter ...`. Detalhes e Dev Container em [AMBIENTE.md](
 | ✅ | 🚀 [Subindo o Seu Projeto Flutter no GitHub](01-introducao-ao-flutter/04-desafio-subindo-projeto-flutter-github/) · [📦](ENTREGAS.md) | Desafio de projeto | Básico | 1h |
 | ✅ | Materiais Complementares - Primeiros Passos com Flutter | Material complementar | Básico | 1h |
 
-### Linguagem de Programação Dart (0/8)
+### Linguagem de Programação Dart (1/8)
 
 | | Atividade | Tipo | Nível | Carga |
 |:-:|---|---|---|---|
@@ -58,7 +58,7 @@ Depois, use sempre `fvm flutter ...`. Detalhes e Dev Container em [AMBIENTE.md](
 | ⬜ | Orientação a Objetos em Dart | Curso | Básico | 2h |
 | ⬜ | Boas Práticas e Tratamento de Exceções em Dart | Curso | Básico | 1h |
 | ⬜ | Introdução à Testes em Dart | Curso | Básico | 1h |
-| ⬜ | 🚀 [Criando uma Calculadora de IMC Com Flutter](02-linguagem-de-programacao-dart/07-desafio-criando-calculadora-imc-flutter/) | Desafio de projeto | Básico | 1h |
+| ✅ | 🚀 [Criando uma Calculadora de IMC Com Flutter](02-linguagem-de-programacao-dart/07-desafio-criando-calculadora-imc-flutter/) · [📦](ENTREGAS.md) | Desafio de projeto | Básico | 1h |
 | ⬜ | Materiais Complementares - Linguagem de Programação Dart | Material complementar | Básico | 1h |
 
 ### Navegação e Widgets em Flutter (0/6)

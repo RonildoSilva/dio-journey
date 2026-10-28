@@ -107,8 +107,13 @@
           "tipo": "desafio",
           "nivel": "Básico",
           "horas": 1,
-          "status": "pendente",
-          "pasta": "07-desafio-criando-calculadora-imc-flutter"
+          "status": "concluido",
+          "pasta": "07-desafio-criando-calculadora-imc-flutter",
+          "entrega": {
+            "status": "entregue",
+            "link": "https://github.com/RonildoSilva/dio-journey/tree/main/formacoes/flutter-specialist/02-linguagem-de-programacao-dart/07-desafio-criando-calculadora-imc-flutter",
+            "data": "2026-10-28"
+          }
         },
         {
           "titulo": "Materiais Complementares - Linguagem de Programação Dart",
